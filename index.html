@@ -1,150 +1,181 @@
 <!DOCTYPE html>
-<html>
-  <head>  
-    <title>Github</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe Game</title>
+  
+  
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
-    <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; color: rgba(0, 0, 255, .6); font-family: 'Poppins', sans-serif; }
-      body {
-        width: 10vw;
-        height: 100vh;
-        overflow: hidden auto;
-        background: rgba(25, 25, 25, .201);
-      }
-      
-      .header {
-        position: fixed;
-        width: 100%;
-        height: 60px;
-        padding: 14px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        background: whitesmoke;
-      }
-      
-      .navbar {
-        position: relative;
-        width: auto;
-      }
-      
-      .navbar ul {
-        position: relative;
-        width: 100%;
-        display: flex;
-        grid-gap: 20px;
-        align-items: center;
-        justify-content: center;
-        list-style: none;
-      }
-      
-      ul li a {
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 14px;
-        padding: 10px 14px;
-        transition: .3s linear;
-      }
-      
-      ul li a:hover span {
-        transition: .3s linear;
-        animation: upDown .5s linear forwards;
-      }
-      
-      ul li a span {
-        transition: .5s linear;
-        margin-left: -3px;
-        display: inline-block;
-      }
-      
-      ul li a span:nth-child(2) { animation-delay: .02s; }
-      ul li a span:nth-child(3) { animation-delay: .06s; }
-      ul li a span:nth-child(4) { animation-delay: .08s; }
-      ul li a span:nth-child(5) { animation-delay: .10s; }
-      ul li a span:nth-child(6) { animation-delay: .102s; }
-      ul li a span:nth-child(7) { animation-delay: .104s; }
-      ul li a span:nth-child(8) { animation-delay: .108s; }
-      ul li a span:nth-child(9) { animation-delay: .12s; }
-      ul li a span:nth-child(10) { animation-delay: .14s; }
-      ul li a span:nth-child(11) { animation-delay: .16s; }
-      ul li a span:nth-child(12) { animation-delay: .18s; }
-      ul li a span:nth-child(13) { animation-delay: .20s; }
-      ul li a span:nth-child(14) { animation-delay: .202s; }
-      
-      @keyframes upDown {
-        0% {
-          opacity: 0;
-          transform: translateY(6px);
+
+    <!-- all the styles required -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="header">
+                <!-- website name and preferred logo -->
+                <div class="left">
+                    <div class="icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-box">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                    </div>
+    
+                    <div class="name">
+                        Game Box
+                    </div>
+                </div>
+                
+                <!-- signup button to save the progress -->
+                <div class="right">
+                    <div class="signup-btn">
+                        <div>Sign Up</div>
+                    </div>
+
+                    <div class="signup-popup">
+                        <div class="popup-content">
+                            <b style="color: #F35656;">Note:</b> Sign Up Today as quickly as possible to 
+                            save your <span style="color: rgb(223, 31, 175);">data</span> and <span style="color: #3498DB;">progress</span>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="section">
+                <div class="content">
+                    <div class="larger-heading">Play New Game 😻</div>
+
+                    <div class="play-btn">
+                        <div>Tic Tac Toe</div>
+                    </div>
+
+                    <div class="game-info">
+                        <b style="color: #FC8181; text-transform: capitalize;">Game Info : </b> <span style="color: violet;">Tic Tac Toe</span>, is a very simple game which is played 
+                        between two people. It's very tricky and brainy game. You have to just make a <span style="color: dodgerblue;">perfect pattern</span> to win the opponent and win the game.
+                    </div>
+                </div>
+
+                <!-- fixed -->
+                <div class="game-box">
+                    <div class="game-box-relative">
+                        <div class="content-top">
+                            <div class="heading">Tic Tac Toe</div>
+
+                            <div class="result-info"></div>
+
+                            <div class="quit-retry">
+                                <div class="same quit">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FC8181" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-delete">
+                                        <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path>
+                                        <line x1="18" y1="9" x2="12" y2="15"></line>
+                                        <line x1="12" y1="9" x2="18" y2="15"></line>
+                                    </svg>
+                                </div>
+
+                                <div class="same retry">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3498DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="toe-content">
+                            <div class="row first">
+                                <div class="col first" data="0">.</div>
+                                <div class="col second" data="1">.</div>
+                                <div class="col third" data="2">.</div>
+                            </div>
+                            <div class="row second">
+                                <div class="col first" data="3">.</div>
+                                <div class="col second" data="4">.</div>
+                                <div class="col third" data="5">.</div>
+                            </div>
+                            <div class="row third">
+                                <div class="col first" data="6">.</div>
+                                <div class="col second" data="7">.</div>
+                                <div class="col third" data="8">.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- all the js codes to control the flow of game -->
+    <script>
+        const log = console.log 
+
+        const largeHeading = document.querySelector("div.larger-heading")
+
+        // play button, 
+        const playButton = document.querySelector("div.play-btn")
+
+        // game box container, 
+        const gameBoxContainer = document.querySelector("div.game-box") 
+
+        let playGame = false 
+
+        const __headingTexts = [
+            "Play New Game 😻",
+            "Win The Game 🎉",
+            "Save Your Progress 🎟️",
+            "Share To Your Friends 💠",
+        ]
+
+        let heading_ch_count_id = 0 
+
+        function changeText() {
+            if ( heading_ch_count_id >= __headingTexts.length ) {
+                heading_ch_count_id = 0
+            }
+
+            runInterval(heading_ch_count_id)
+            
+            heading_ch_count_id += 1
         }
-        100% {
-          opacity: 1;
-          color: #070233;
-          transform: translateY(0);
+
+        function runInterval(id) {
+            // lets empty the text at first, 
+            largeHeading.innerHTML = ""
+
+            let txt = __headingTexts[id]
+            let txt_count = 0
+
+            let timer = setInterval(() => {
+                
+                largeHeading.innerHTML += `<span>${txt[txt_count]}</span>`
+
+                if ( txt_count >= txt.length - 1 ) {
+                    clearInterval(timer)
+                    timer = null
+
+                    setTimeout(changeText, 6000)
+
+                    return
+                }
+
+                txt_count += 1 
+            }, 50)
         }
-      }
-    </style>
-  </head>
-  <body>
-    <header class="header">
-      <nav class="navbar">
-        <ul>
-          <li>
-            <a href="#">
-              <span>H</span>
-              <span>o</span>
-              <span>m</span>
-              <span>e</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span>D</span>
-              <span>o</span>
-              <span>c</span>
-              <span>u</span>
-              <span>m</span>
-              <span>e</span>
-              <span>n</span>
-              <span>t</span>
-              <span>a</span>
-              <span>t</span>
-              <span>i</span>
-              <span>o</span>
-              <span>n</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span>B</span>
-              <span>l</span>
-              <span>o</span>
-              <span>g</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span>G</span>
-              <span>a</span>
-              <span>l</span>
-              <span>l</span>
-              <span>e</span>
-              <span>r</span>
-              <span>y</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span>A</span>
-              <span>b</span>
-              <span>o</span>
-              <span>u</span>
-              <span>t</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-  </body>
+
+        changeText()
+
+        playButton.onclick = () => {
+            gameBoxContainer.style.display = "flex"
+            playGame = true 
+        }
+
+        log("Are You Enjoying 😎 the Game.");
+    </script>
+    <script type="text/javascript" src="controls.js"></script>
+</body>
 </html>
