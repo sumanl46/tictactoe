@@ -1,0 +1,291 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: .1s linear;
+    user-select: none;
+    scroll-behavior: smooth;
+    font-family: "Poppins";
+}
+
+body {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #050749;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: transparent;
+}
+
+.container .wrapper {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    margin: auto;
+}
+
+.wrapper .header {
+    position: relative;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(87, 85, 85);
+}
+
+.header .left {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header .left .icon {
+    position: relative;
+    padding-top: 3px;
+}
+
+.header .left .name {
+    font-weight: bold;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+.header .right {
+    position: relative;
+}
+
+.header .right .signup-btn {
+    position: relative;
+    width: 150px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: #F1F3F4;
+    font-weight: 500;
+    color: hsl(0, 7%, 11%);
+    cursor: pointer;
+}
+
+.header .right .signup-btn:hover {
+    color: hsl(271, 76%, 53%);
+}
+
+.header .right .signup-popup {
+    position: absolute;
+    z-index: 10;
+    background: rgb(1, 3, 31);
+    border-radius: 10px;
+    top: 75px;
+    width: 230px;
+    height: auto;
+    right: -10px;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.header .right:hover .signup-popup {
+    top: 55px;
+    opacity: 1;
+}
+
+.header .right .signup-popup .popup-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    text-align: justify;
+    color: whitesmoke;
+    font-weight: 500;
+}
+
+.container .wrapper .section {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 70px);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section .content {
+    position: relative;
+    width: auto;
+    height: auto;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+}
+
+.section .content .larger-heading {
+    position: relative;
+    font-weight: bold;
+    font-size: 34px;
+    color: #FFFFFF;
+    text-align: center;
+    cursor: text;
+    height: 51px;
+    max-height: 51px;
+}
+
+.section .content .play-btn {
+    position: relative;
+    width: 150px;
+    height: 50px;
+    border-radius: 14px;
+    margin: 20px 0;
+    background: #FFFFFF;
+    color: #30363a;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+.section .content .play-btn:hover {
+    color: #3498DB;
+}
+
+.section .content .game-info {
+    position: relative;
+    width: 400px;
+    height: auto;
+    overflow: hidden;
+    border-radius: 14px;
+    background: rgb(1, 3, 31);
+    padding: 10px;
+    text-align: justify;
+    color: #F1F3F4;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.container .wrapper .section .game-box {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, .5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+}
+
+.section .game-box .game-box-relative {
+    position: relative;
+    height: auto;
+    width: 350px;
+    max-width: 350px;
+    border-radius: 20px;
+    background: #FFFFFF;
+    padding: 20px;
+}
+
+.game-box .game-box-relative .content-top {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid grey;
+    padding-bottom: 20px;
+}
+
+.game-box-relative .content-top .heading {
+    position: relative;
+    font-weight: 600;
+    color: #3498DB;
+    font-size: 14px;
+    text-align: center;
+    cursor: default;
+}
+
+.game-box-relative .content-top .result-info {
+    position: relative;
+    font-size: 12px;
+    color: #3fdf6c;
+    font-weight: 700;
+    text-align: center;
+    cursor: default;
+}
+
+.game-box-relative .content-top .quit-retry {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.game-box-relative .content-top .quit-retry .same {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    filter: grayscale(50);
+}
+
+.game-box-relative .content-top .quit-retry .same:hover {
+    filter: grayscale(0);
+}
+
+.game-box-relative .toe-content {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    padding: 20px;
+    overflow: hidden;
+    display: grid;
+}
+
+.toe-content .row {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toe-content > .row.first , .row.second {
+    border-bottom: 1px solid lightgray;
+}
+
+.toe-content .row .col {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    color: #30363a;
+    cursor: pointer;
+}
+
+.toe-content .row > .col.first , .col.second {
+    border-right: 1px solid lightgray;
+}
+
+
+.toe-content .row .col:hover {
+    background: whitesmoke;
+}
